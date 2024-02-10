@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-    base: 'https://juan1639.github.io/Galaximi-vite',
+    base: './',
     build: {
         rollupOptions: {
             output: {
