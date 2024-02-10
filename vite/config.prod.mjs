@@ -17,7 +17,7 @@ const phasermsg = () => {
 }   
 
 export default defineConfig({
-    base: './',
+    base: 'https://juan1639.github.io/Galaximi-vite',
     logLevel: 'warning',
     build: {
         rollupOptions: {
