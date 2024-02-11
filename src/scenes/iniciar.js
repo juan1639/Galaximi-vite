@@ -1,7 +1,8 @@
+import { Scene } from 'phaser';
 import { centrar_txt } from "../utils/functions.js";
 
 // =================================================================================
-export class Iniciar extends Phaser.Scene {
+export class Iniciar extends Scene {
 
     static WIDTH = 800;
     static HEIGHT = 600;

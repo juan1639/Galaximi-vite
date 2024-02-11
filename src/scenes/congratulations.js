@@ -1,9 +1,10 @@
+import { Scene } from 'phaser';
 import { centrar_txt } from '../utils/functions.js';
 import { Settings } from './settings.js';
 import { BotonNuevaPartida } from "../components/boton-nuevapartida.js";
 import { Estrella } from '../components/fondo.js';
 
-export class Congratulations extends Phaser.Scene {
+export class Congratulations extends Scene {
 
   constructor() {
     super({ key: 'congratulations' });

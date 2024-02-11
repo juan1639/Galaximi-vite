@@ -2,6 +2,7 @@
 //  D O N K E Y - J O N  4
 // 
 // -----------------------------------------------------------------------------------------
+import { Scene } from 'phaser';
 import { loader } from './loader.js';
 import { Settings } from './settings.js';
 
@@ -25,7 +26,7 @@ import { BotonFullScreen } from '../components/boton-nuevapartida.js';
 import { BotonFire, CrucetaDireccion } from '../components/botonfire.js';
 
 // --------------------------------------------------------------
-export class Game extends Phaser.Scene {
+export class Game extends Scene {
 
   constructor() {
     super({ key: 'game' });

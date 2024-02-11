@@ -92,7 +92,7 @@ export class Enemigo {
         let frecuencia = 7000 - Settings.getNivel() * 500;
         if (frecuencia <= 2500) frecuencia = 2500;
 
-        const hastaAbajo = 100 - Settings.getNivel() * 10;
+        let hastaAbajo = 100 - Settings.getNivel() * 10;
         if (hastaAbajo <= 0) hastaAbajo = 0;
 
         let descender = [];

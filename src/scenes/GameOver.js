@@ -1,3 +1,4 @@
+import { Scene } from 'phaser';
 import { Estrella } from '../components/fondo.js';
 import { Marcador } from '../components/marcador.js';
 import { BotonNuevaPartida } from "../components/boton-nuevapartida.js";
@@ -5,7 +6,7 @@ import { centrar_txt } from "../utils/functions.js";
 import { Settings } from './settings.js';
 
 // ==========================================================================
-export class GameOver extends Phaser.Scene {
+export class GameOver extends Scene {
 
   constructor() {
 

@@ -1,9 +1,10 @@
+import { Scene } from 'phaser';
 import { Estrella } from '../components/fondo.js';
 import { EnemigoApareciendo } from '../components/enemigos2.js';
 import { Marcador } from '../components/marcador.js';
 
 // ================================================================================
-export class AparecenEnemigos extends Phaser.Scene {
+export class AparecenEnemigos extends Scene {
     
     // -------------------------------------------------
     constructor() {

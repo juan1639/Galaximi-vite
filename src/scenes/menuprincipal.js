@@ -1,3 +1,4 @@
+import { Scene } from 'phaser';
 import { loader } from './loader.js';
 import { centrar_txt } from '../utils/functions.js';
 import { Settings } from './settings.js';
@@ -5,7 +6,7 @@ import { Estrella } from '../components/fondo.js';
 import { BotonNuevaPartida, BotonSettings } from "../components/boton-nuevapartida.js";
 
 // =================================================================================
-export class MenuPrincipal extends Phaser.Scene {
+export class MenuPrincipal extends Scene {
 
     // -------------------------------------------------
     constructor() {
