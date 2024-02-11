@@ -1,6 +1,6 @@
 https://juan1639.github.io/Galaximi-vite
 
-<img src="./screenshot.png"/>
+<img src="./src/img/miniatura-galaximi.png"/>
 
 # Phaser Vite Template
 
