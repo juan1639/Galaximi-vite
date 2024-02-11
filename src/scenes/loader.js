@@ -69,36 +69,36 @@ export function loader(scene) {
   // ---------------------------------------------------------------------------------
   //  Audio
   // ---------------------------------------------------------------------------------
-  scene.load.audio('sonidoDisparo', './src/audio/disparo_corto.mp3');
+  // scene.load.audio('sonidoDisparo', './src/audio/disparo_corto.mp3');
   scene.load.audio('sonidoDisparo', './assets/audio/disparo_corto.mp3');
 
-  scene.load.audio('sonidoExplosion', './src/audio/explosion.wav');
+  // scene.load.audio('sonidoExplosion', './src/audio/explosion.wav');
   scene.load.audio('sonidoExplosion', './assets/audio/explosion.wav');
 
-  scene.load.audio('sonidoFireWorks', './src/audio/fireworks.mp3');
+  // scene.load.audio('sonidoFireWorks', './src/audio/fireworks.mp3');
   scene.load.audio('sonidoFireWorks', './assets/audio/fireworks.mp3');
 
-  scene.load.audio('sonidoGameOver', './src/audio/gameoveretro.ogg');
+  // scene.load.audio('sonidoGameOver', './src/audio/gameoveretro.ogg');
   scene.load.audio('sonidoGameOver', './assets/audio/gameoveretro.ogg');
 
-  scene.load.audio('sonidoLevelUp', './src/audio/level-passed.mp3');
+  // scene.load.audio('sonidoLevelUp', './src/audio/level-passed.mp3');
   scene.load.audio('sonidoLevelUp', './assets/audio/level-passed.mp3');
 
-  scene.load.audio('sonidoMusicaFondo', './src/audio/music.ogg');
+  // scene.load.audio('sonidoMusicaFondo', './src/audio/music.ogg');
   scene.load.audio('sonidoMusicaFondo', './assets/audio/music.ogg');
 
-  scene.load.audio('sonidoNaveExplota', './src/audio/navexplota.mp3');
+  // scene.load.audio('sonidoNaveExplota', './src/audio/navexplota.mp3');
   scene.load.audio('sonidoNaveExplota', './assets/audio/navexplota.mp3');
 
-  scene.load.audio('sonidoGalaxian', './src/audio/playing-galaxian.mp3');
+  // scene.load.audio('sonidoGalaxian', './src/audio/playing-galaxian.mp3');
   scene.load.audio('sonidoGalaxian', './assets/audio/playing-galaxian.mp3');
 
-  scene.load.audio('sonidoIntroRetro', './src/audio/retro-game-intro.mp3');
+  // scene.load.audio('sonidoIntroRetro', './src/audio/retro-game-intro.mp3');
   scene.load.audio('sonidoIntroRetro', './assets/audio/retro-game-intro.mp3');
 
-  scene.load.audio('dieT1', './src/audio/dieThrow1.ogg');
+  // scene.load.audio('dieT1', './src/audio/dieThrow1.ogg');
   scene.load.audio('dieT1', './assets/audio/dieThrow1.ogg');
 
-  scene.load.audio('dieT2', './src/audio/dieThrow2.ogg');
+  // scene.load.audio('dieT2', './src/audio/dieThrow2.ogg');
   scene.load.audio('dieT2', './assets/audio/dieThrow2.ogg');
 }
