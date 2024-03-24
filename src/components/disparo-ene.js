@@ -27,13 +27,13 @@ export class DisparoEnemigo {
             repeat: -1
         });
 
-        this.relatedScene.tweens.add({
+        /* this.relatedScene.tweens.add({
             targets: this.disparoenemigo.getChildren(),
             scale: 1.1,
             duration: 200,
             yoyo: true,
             repeat: -1,
-        });
+        }); */
 
         this.disparoenemigo.getChildren().forEach(disp => {
             disp.setScale(0.8);
