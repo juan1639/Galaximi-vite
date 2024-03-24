@@ -34,6 +34,11 @@ export class BotonFire {
             this.isDown = false;
         });
     }
+
+    get()
+    {
+        return this.boton;
+    }
 }
 
 // ==================================================================================
@@ -71,6 +76,11 @@ export class CrucetaDireccion {
         this.boton.on('pointerup', () => {
             this.isDown = false;
         });
+    }
+
+    get()
+    {
+        return this.boton;
     }
 }
 

@@ -47,6 +47,8 @@ export function loader(scene) {
 
   // scene.load.spritesheet('boton-fullscreen', './src/img/boton-fullscreen.png', {frameWidth: 64, frameHeight: 64});
   scene.load.spritesheet('boton-fullscreen', './assets/img/boton-fullscreen.png', {frameWidth: 64, frameHeight: 64});
+
+  scene.load.spritesheet('radio-buttons', './assets/img/radio-buttons-ssheet.png', {frameWidth: 50, frameHeight: 50});
   
   // ---------------------------------------------------------------------------------
   //  Pluggin Control Joystick-tactil

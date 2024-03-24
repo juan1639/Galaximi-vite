@@ -70,7 +70,7 @@ export class MenuPrincipal extends Scene {
               at: aparecerBoton,
               run: () => {
                 this.botoninicio.create('prenivel');
-                this.botonsettings.create('prenivel');
+                this.botonsettings.create('menusettings');
               }
             }
         ]);

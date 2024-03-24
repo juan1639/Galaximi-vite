@@ -25,7 +25,6 @@ import { Marcador } from './../components/marcador.js';
 import { BotonFullScreen } from '../components/boton-nuevapartida.js';
 import { BotonFire, CrucetaDireccion } from '../components/botonfire.js';
 
-// --------------------------------------------------------------
 export class Game extends Scene {
 
   constructor() {
@@ -78,6 +77,7 @@ export class Game extends Scene {
     this.botonfire.create();
     this.crucetaleft.create();
     this.crucetaright.create();
+    this.hideMobileControls();
 
     /* this.joyStick = this.plugins.get('rexvirtualjoystickplugin').add(this, {
       x: 90,
@@ -114,7 +114,6 @@ export class Game extends Scene {
     }, this);
   }
 
-  // ================================================================
   update() {
     
     // const pointer = this.input.activePointer;
@@ -134,5 +133,17 @@ export class Game extends Scene {
 
     if (this.nivel_superado) this.scene.start('congratulations');
     if (Settings.getVidas() < 0) this.scene.start('gameover');
+  }
+
+  hideMobileControls()
+  {
+    console.log(Settings.controlElegido);
+    
+    if (!Settings.controlElegido.mobile)
+    {
+      this.botonfire.get().setVisible(false);
+      this.crucetaleft.get().setVisible(false);
+      this.crucetaright.get().setVisible(false);
+    }
   }
 }

@@ -1,5 +1,6 @@
 import { Iniciar } from './scenes/iniciar.js';
 import { MenuPrincipal } from './scenes/menuprincipal.js';
+import { MenuSettings } from './scenes/menuSettings.js';
 import { PreNivel } from './scenes/prenivel.js';
 import { AparecenEnemigos } from './scenes/aparecenenemigos.js';
 import { Game } from './scenes/game.js';
@@ -11,7 +12,7 @@ const config = {
   width: 800,
   height: 600,
   parent: 'contenedor',
-  scene: [Iniciar, MenuPrincipal, PreNivel, AparecenEnemigos, Game, Congratulations, GameOver],
+  scene: [Iniciar, MenuPrincipal, MenuSettings, PreNivel, AparecenEnemigos, Game, Congratulations, GameOver],
   physics: {
     default: 'arcade',
     arcade: {
