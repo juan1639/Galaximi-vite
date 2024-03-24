@@ -1,20 +1,19 @@
 
-// =======================================================================
-export class Estrella {
-    
+export class Estrella
+{
     static NRO_STAR_AZULADAS = 39;
     static NRO_STAR_ROJIZAS = 49;
     static ESCALA_INICIAL = 0.01;
     static ESCALA_MAX = 0.21;
     static APARECER_ARRIBA = -15;
 
-    // ------------------------------------------------------
-    constructor(scene) {
+    constructor(scene)
+    {
         this.relatedScene = scene;
     }
 
-    create() {
-
+    create()
+    {
         this.estrellas = {
             azuladas: this.relatedScene.physics.add.group({
                 key: 'estrella-azul',
@@ -46,8 +45,8 @@ export class Estrella {
         console.log(this.estrellas);
     }
 
-    update() {
-
+    update()
+    {
         Object.keys(this.estrellas).forEach(tipoStar => {
 
             this.estrellas[tipoStar].getChildren().forEach(star => {
@@ -59,15 +58,16 @@ export class Estrella {
         });
     }
 
-    inicializar(star) {
-
+    inicializar(star)
+    {
         star.setScale(Estrella.ESCALA_INICIAL + Phaser.Math.FloatBetween(0, 0.12));
         star.setVelocityY(Phaser.Math.FloatBetween(5, 50));
         star.setX(Phaser.Math.Between(0, this.relatedScene.sys.game.config.width));
         star.setY(Phaser.Math.Between(0, this.relatedScene.sys.game.config.height));
     }
 
-    get() {
+    get()
+    {
         return this.estrellas;
     }
 }

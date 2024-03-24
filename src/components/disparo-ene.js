@@ -1,19 +1,17 @@
 import { Settings } from "../scenes/settings.js";
 
-// ======================================================================================
-export class DisparoEnemigo {
-
+export class DisparoEnemigo
+{
     static NRO_MAX_DISPAROS = 9;
     static VEL_Y = 100;
 
-    // ------------------------------------------------------
-    constructor(scene) {
-
+    constructor(scene)
+    {
         this.relatedScene = scene;
     }
 
-    create() {
-
+    create()
+    {
         this.disparoenemigo = this.relatedScene.physics.add.group({
             key: 'disparo-ene',
             setXY: { x: -8888, y: 8888, stepX: 150 },
@@ -53,9 +51,10 @@ export class DisparoEnemigo {
         console.log(this.disparoenemigo);
     }
 
-    update() {
-
-        this.disparoenemigo.children.iterate(disp => {
+    update()
+    {
+        this.disparoenemigo.children.iterate(disp =>
+        {
             if (disp.y > this.relatedScene.sys.game.config.height) {
 
                 disp.setActive(false).setVisible(false).disableBody(true, true);
@@ -63,7 +62,8 @@ export class DisparoEnemigo {
         });
     }
     
-    get() {
+    get()
+    {
         return this.disparoenemigo;
     }
 }

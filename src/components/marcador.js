@@ -1,28 +1,28 @@
 import { Settings } from "../scenes/settings.js";
 import { centrar_txt } from "../utils/functions.js";
 
-// ===========================================================================
-export class Marcador {
-
-    constructor(scene) {
+export class Marcador
+{
+    constructor(scene)
+    {
         this.relatedScene = scene;
     }
 
-    create() {
-
+    create()
+    {
         this.marcadores = this.relatedScene.add.group();
 
         const ancho = this.relatedScene.sys.game.config.width;
         const alto = this.relatedScene.sys.game.config.height;
 
         this.args = [
-            [ ' Puntos: ', 20, '#fff', '#2ef', 7, 0, 0, Settings.getPuntos() ],
-            [ ' Nivel: ', 20, '#fff', '#2ef', 7, Math.floor(ancho / 2), 0, Settings.getNivel() ],
+            [ ' Score: ', 20, '#fff', '#2ef', 7, 0, 0, Settings.getPuntos() ],
+            [ ' Level: ', 20, '#fff', '#2ef', 7, Math.floor(ancho / 2), 0, Settings.getNivel() ],
             [ ' Record: ', 20, '#fff', '#2ef', 7, Math.floor(ancho / 1.4), 0, Settings.getRecord() ]
         ];
 
-        this.args.forEach((arg, index) => {
-
+        this.args.forEach((arg, index) =>
+        {
             let cadaMarcador = this.relatedScene.add.text(arg[5], arg[6], arg[0] + arg[7], {
                 fontSize: arg[1] + 'px',
                 fill: arg[2],
@@ -44,12 +44,13 @@ export class Marcador {
         console.log(this.marcadores);
     }
 
-    update(id, valor) {
-
+    update(id, valor)
+    {
         this.marcadores.getChildren()[id].setText(this.args[id][0] + valor);
     }
 
-    get() {
+    get()
+    {
         return this.marcadores;
     }
 }

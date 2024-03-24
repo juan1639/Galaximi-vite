@@ -1,21 +1,20 @@
 import { Settings } from "../scenes/settings.js";
 
-// =======================================================================
-export class Jugador {
-
+export class Jugador
+{
     static VEL_X = 520;
     static ACEL_X = 500;
     static VEL_Y = 0;
     static REVIVIR_PAUSA = 4000;
     static DURACION_EXPLO = 1150;
 
-    // ------------------------------------------------------------
-    constructor(scene) {
+    constructor(scene)
+    {
         this.relatedScene = scene;
     }
 
-    create() {
-
+    create()
+    {
         const posIniX = Math.floor(this.relatedScene.sys.game.config.width / 2);
         const posIniY = Math.floor(this.relatedScene.sys.game.config.height / 1.08);
 
@@ -37,7 +36,8 @@ export class Jugador {
         console.log(this.jugador, this.jugador.x, this.jugador.body.width, this.jugador.width);
     }
 
-    update() {
+    update()
+    {
 
         if (this.controles.left.isDown || this.relatedScene.crucetaleft.isDown) {
 
@@ -52,25 +52,26 @@ export class Jugador {
         }
     }
     
-    get() {
+    get()
+    {
         return this.jugador;
     }
 }
 
 // =======================================================================
-export class JugadorShowVidas {
-
+export class JugadorShowVidas
+{
     static xAbsolute = 240;
     static ancho = 19; // 124
     static alto = 28; // 183
 
-    // ------------------------------------------------------------
-    constructor(scene) {
+    constructor(scene)
+    {
         this.relatedScene = scene;
     }
 
-    create() {
-
+    create()
+    {
         this.jugadorSV = this.relatedScene.add.group({
             key: 'jugador',
             setXY: { x: JugadorShowVidas.xAbsolute, y: Math.floor(JugadorShowVidas.alto / 2), stepX: JugadorShowVidas.ancho},
@@ -85,7 +86,8 @@ export class JugadorShowVidas {
         console.log(this.jugadorSV);
     }
 
-    get() {
+    get()
+    {
         return this.jugadorSV;
     }
 }

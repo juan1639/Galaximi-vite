@@ -6,8 +6,8 @@ import { Estrella } from '../components/fondo.js';
 import { BotonNuevaPartida, BotonSettings } from "../components/boton-nuevapartida.js";
 import { ElegirControles } from '../components/elegirControles.js';
 
-export class MenuSettings extends Scene {
-
+export class MenuSettings extends Scene
+{
     constructor()
     {
         super({ key: 'menusettings' });

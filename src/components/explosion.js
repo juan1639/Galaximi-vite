@@ -1,18 +1,16 @@
 
-// ======================================================================================
-export class Explosion {
-
+export class Explosion
+{
     static NRO_EXPLOSIONES = 9;
     static DURACION_EXPLO = 1000;
 
-    // ------------------------------------------------------
-    constructor(scene) {
-
+    constructor(scene)
+    {
         this.relatedScene = scene;
     }
 
-    create() {
-
+    create()
+    {
         this.explosion = this.relatedScene.physics.add.group({
             key: 'explosion',
             setXY: { x: -5555, y: -5555, stepX: 100 },
@@ -36,11 +34,10 @@ export class Explosion {
         console.log(this.explosion);
     }
 
-    update() {
-
-    }
+    update() {}
     
-    get() {
+    get()
+    {
         return this.explosion;
     }
 }

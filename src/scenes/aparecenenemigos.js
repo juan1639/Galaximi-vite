@@ -3,22 +3,22 @@ import { Estrella } from '../components/fondo.js';
 import { EnemigoApareciendo } from '../components/enemigos2.js';
 import { Marcador } from '../components/marcador.js';
 
-// ================================================================================
-export class AparecenEnemigos extends Scene {
-    
-    // -------------------------------------------------
-    constructor() {
+export class AparecenEnemigos extends Scene
+{    
+    constructor()
+    {
         super({ key: 'aparecenenemigos' });
     }
 
-    init() {
+    init()
+    {
         this.estrella = new Estrella(this);
         this.enemigoapareciendo = new EnemigoApareciendo(this);
         this.marcador = new Marcador(this);
     }
 
-    create() {
-        
+    create()
+    {
         this.sonidoIntroRetro = this.sound.add('sonidoIntroRetro');
 
         this.add.image(0, 0, 'fondoAzulRojizo').setOrigin(0, 0);
@@ -41,7 +41,8 @@ export class AparecenEnemigos extends Scene {
         this.sonidoIntroRetro.volume = 0.5;
     }
 
-    update() {
+    update()
+    {
         this.estrella.update();
         this.enemigoapareciendo.update();
     }

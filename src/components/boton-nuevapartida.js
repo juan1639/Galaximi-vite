@@ -1,15 +1,14 @@
 import { Settings } from "../scenes/settings.js";
 
-// ==================================================================================
-export class BotonNuevaPartida {
-
-  // --------------------------------------------------------
-  constructor(scene) {
+export class BotonNuevaPartida
+{
+  constructor(scene)
+  {
     this.relatedScene = scene;
   }
 
-  create(siguienteScene) {
-
+  create(siguienteScene)
+  {
     const ancho = this.relatedScene.sys.game.config.width;
     const alto = this.relatedScene.sys.game.config.height;
     const botonCondicional = Settings.getNivel() > 1 ? 'boton-continuar' : 'boton-nueva-partida';
@@ -44,15 +43,15 @@ export class BotonNuevaPartida {
 }
 
 // ==================================================================================
-export class BotonSettings {
-
-  // --------------------------------------------------------
-  constructor(scene) {
+export class BotonSettings
+{
+  constructor(scene)
+  {
     this.relatedScene = scene;
   }
 
-  create(siguienteScene) {
-
+  create(siguienteScene)
+  {
     const ancho = this.relatedScene.sys.game.config.width;
     const alto = this.relatedScene.sys.game.config.height;
     this.boton = this.relatedScene.add.sprite(Math.floor(ancho / 2), Math.floor(alto / 1.1), 'boton-settings').setInteractive();
@@ -84,15 +83,15 @@ export class BotonSettings {
 }
 
 // ==================================================================================
-export class BotonFullScreen {
-
-  // --------------------------------------------------------
-  constructor(scene) {
+export class BotonFullScreen
+{
+  constructor(scene)
+  {
     this.relatedScene = scene;
   }
 
-  create() {
-
+  create()
+  {
     const ancho = this.relatedScene.sys.game.config.width;
     const alto = this.relatedScene.sys.game.config.height;
     const escala = 0.5;

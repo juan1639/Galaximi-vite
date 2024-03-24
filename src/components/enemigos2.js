@@ -1,19 +1,18 @@
 import { Settings } from '../scenes/settings.js';
 import { centrar_txt } from '../utils/functions.js';
 
-// ========================================================================
-export class Enemigo {
-
+export class Enemigo
+{
     static tileXY = [64, 64];
     static VEL_Y = 120;
 
-    // ------------------------------------------------------------
-    constructor(scene) {
+    constructor(scene)
+    {
         this.relatedScene = scene;
     }
 
-    create() {
-
+    create()
+    {
         this.formacion = this.formaciones_nivel(Settings.getNivel());
         console.log(Settings.getNivel());
 
@@ -62,8 +61,8 @@ export class Enemigo {
         console.log(this.enemigos.getChildren());
     }
 
-    update() {
-
+    update()
+    {
         this.formacion.x += this.formacion.velX;
 
         if ((this.formacion.x >= this.formacion.recorrido && this.formacion.velX > 0) || (this.formacion.x <= -this.formacion.recorrido / 2 && this.formacion.velX < 0)) {
@@ -79,16 +78,16 @@ export class Enemigo {
         });
     }
 
-    inicializar(ene, index) {
-
+    inicializar(ene, index)
+    {
         ene.setAngle(350);
         ene.setScale(0.4);
         ene.setDepth(2);
         ene.setData('puntos', 100 + Phaser.Math.Between(0, 9) * 10);
     }
 
-    crea_enemigos_descendentes() {
-
+    crea_enemigos_descendentes()
+    {
         let frecuencia = 7000 - Settings.getNivel() * 500;
         if (frecuencia <= 2500) frecuencia = 2500;
 
@@ -124,8 +123,8 @@ export class Enemigo {
         });
     }
 
-    crea_anims(nivel) {
-
+    crea_anims(nivel)
+    {
         const keysAnima = [
             ['enemys-anim', 'enemigos'],
             ['enemys2-anim', 'enemigos2']
@@ -165,16 +164,16 @@ export class Enemigo {
         }
     }
 
-    get_posicion(index) {
-
+    get_posicion(index)
+    {
         const y = Math.floor(index / Enemigo.array_enemigos[0].length);
         const x = index - (y * Enemigo.array_enemigos[0].length);
         
         return [x, y];
     }
 
-    formaciones_nivel(nivel) {
-
+    formaciones_nivel(nivel)
+    {
         const formaciones = [
             {
                 x: 0,// (Nivel 0 --> No hay)
@@ -236,21 +235,23 @@ export class Enemigo {
         return formaciones[nivel];
     }
 
-    get() {
+    get()
+    {
         return this.enemigos;
     }
 }
 
 // ======================================================================================
-export class EnemigoApareciendo extends Enemigo {
-
-    constructor(scene) {
+export class EnemigoApareciendo extends Enemigo
+{
+    constructor(scene)
+    {
         super();
         this.relatedScene = scene;
     }
 
-    create() {
-
+    create()
+    {
         this.formacion = this.formaciones_nivel(Settings.getNivel());
         console.log(Settings.getNivel());
 
@@ -277,19 +278,20 @@ export class EnemigoApareciendo extends Enemigo {
         const txtX = this.relatedScene.sys.game.config.width;
         const txtY = this.relatedScene.sys.game.config.height;
 
-        this.txt_preparado = this.relatedScene.add.text(Math.floor(txtX / 2.6), Math.floor(txtY / 1.4), ' Preparado...', {
-            fontSize: '30px',
+        this.txt_preparado = this.relatedScene.add.text(Math.floor(txtX / 2.6), Math.floor(txtY / 1.4), ' Ready...', {
+            fontSize: '40px',
+            fontStyle: 'bold',
             style: {
                 align: 'center',
             },
             shadow: {
                 offsetX: 1,
                 offsetY: 1,
-                color: '#2f9',
-                blur: 9,
+                color: '#cff',
+                blur: 1,
                 fill: true
             },
-            fill: '#7f1',
+            fill: '#1aa',
             fontFamily: 'verdana, arial, sans-serif'
         });
 
@@ -306,19 +308,17 @@ export class EnemigoApareciendo extends Enemigo {
         console.log(this.enemigos.getChildren());
     }
 
-    update() {
+    update() {}
 
-    }
-
-    inicializar(ene, index) {
-
+    inicializar(ene, index)
+    {
         ene.setAngle(0);
         ene.setScale(0.4);
         ene.setAlpha(0);
     }
 
-    crea_enemigos_descendentesApareciendo() {
-
+    crea_enemigos_descendentesApareciendo()
+    {
         this.relatedScene.tweens.add({
             targets: this.enemigos.getChildren(),
             alpha: 1,

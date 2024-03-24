@@ -25,14 +25,15 @@ import { Marcador } from './../components/marcador.js';
 import { BotonFullScreen } from '../components/boton-nuevapartida.js';
 import { BotonFire, CrucetaDireccion } from '../components/botonfire.js';
 
-export class Game extends Scene {
-
-  constructor() {
+export class Game extends Scene
+{
+  constructor()
+  {
     super({ key: 'game' });
   }
 
-  init() {
-
+  init()
+  {
     this.nivel_superado = false;
 
     this.estrella = new Estrella(this);
@@ -55,8 +56,8 @@ export class Game extends Scene {
     loader(this);
   }
 
-  create() {
-
+  create()
+  {
     this.sonidoDisparo = this.sound.add('sonidoDisparo');
     this.sonidoExplosion = this.sound.add('sonidoExplosion');
     this.sonidoGameOver = this.sound.add('sonidoGameOver');
@@ -114,8 +115,8 @@ export class Game extends Scene {
     }, this);
   }
 
-  update() {
-    
+  update()
+  {  
     // const pointer = this.input.activePointer;
     // console.log(pointer.worldX, pointer.worldY);
 

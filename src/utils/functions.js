@@ -5,9 +5,8 @@ import { Particulas } from "../components/particulas.js";
 import { Explosion } from "../components/explosion.js";
 import { Jugador } from "../components/jugador.js";
 
-// ===============================================================================
-function inicia_disparo(jugador, scene, botonfire, time, disparo, sonidoDisparo) {
-
+function inicia_disparo(jugador, scene, botonfire, time, disparo, sonidoDisparo)
+{
   if (jugador.controles.shift.isDown) scene.start('gameover');
 
   if (jugador.controles.space.isDown || botonfire.isDown) {
@@ -36,9 +35,8 @@ function inicia_disparo(jugador, scene, botonfire, time, disparo, sonidoDisparo)
   }
 }
 
-// ==============================================================================
-function inicia_disparo_enemigos(scene) {
-
+function inicia_disparo_enemigos(scene)
+{
   let buscar = false;
 
   scene.enemigo.get().children.iterate(ene => {
@@ -78,9 +76,8 @@ function inicia_disparo_enemigos(scene) {
   });
 }
 
-// ==================================================================================
-function settings_disparo_enemigo(disp, ene) {
-  
+function settings_disparo_enemigo(disp, ene)
+{
   disp.setActive(true).setVisible(true);
   disp.enableBody(true, ene.x, ene.y + Math.floor(ene.body.height / 2), true, true);
   // disp.setX(ene.x);
@@ -91,9 +88,8 @@ function settings_disparo_enemigo(disp, ene) {
   disp.setAlpha(1);
 }
 
-// ==================================================================================
-function enemigo_gira(ene, scene) {
-
+function enemigo_gira(ene, scene)
+{
   scene.tweens.add({
     targets: ene,
     angle: 360,
@@ -102,9 +98,8 @@ function enemigo_gira(ene, scene) {
   });
 }
 
-// ==================================================================================
-function colisionVsEnemigo(enemigo, disparo) {
-
+function colisionVsEnemigo(enemigo, disparo)
+{
     console.log('colision...disparo-enemigo');
     // console.log(enemigo);
 
@@ -150,9 +145,8 @@ function colisionVsEnemigo(enemigo, disparo) {
     console.log(this.enemigo.get().countActive());
 }
 
-// ===================================================================================
-function colisionJugadorVsEnemigo(jugador, enemigo) {
-
+function colisionJugadorVsEnemigo(jugador, enemigo)
+{
   console.log('colision...disparo-enemigo');
   console.log(enemigo, jugador);
   console.log(jugador.getData('posIni'));
@@ -236,9 +230,8 @@ function colisionJugadorVsEnemigo(jugador, enemigo) {
   console.log(this.enemigo.get().countActive());
 }
 
-// ===================================================================================
-function colisionVsDisparoEnemigo(jugador, disparoenemigo) {
-
+function colisionVsDisparoEnemigo(jugador, disparoenemigo)
+{
   console.log('colision...disparo-enemigo');
   console.log(disparoenemigo, jugador);
   console.log(jugador.getData('posIni'));
@@ -300,9 +293,8 @@ function colisionVsDisparoEnemigo(jugador, disparoenemigo) {
   this.sonidoNaveExplota.play();
 }
 
-// ==================================================================================
-function settings_particulas(particula, enemigo) {
-
+function settings_particulas(particula, enemigo)
+{
   particula.setActive(true).setVisible(true);
   particula.setX(enemigo.x);
   particula.setY(enemigo.y);
@@ -310,9 +302,8 @@ function settings_particulas(particula, enemigo) {
   particula.setAlpha(1.0);
 }
 
-// ----------------------------------------------------------------------------------
-function settings_explosion(explo, enemigo) {
-
+function settings_explosion(explo, enemigo)
+{
   explo.setActive(true).setVisible(true);
   explo.setX(enemigo.x);
   explo.setY(enemigo.y);
@@ -320,24 +311,21 @@ function settings_explosion(explo, enemigo) {
   explo.setScale(2);
 }
 
-// =================================================================================
-function centrar_txt(texto, anchoScreen) {
-  
+function centrar_txt(texto, anchoScreen)
+{
   console.log(texto.width);
   return Math.floor(anchoScreen / 2 - texto.width / 2);
 }
 
-// =================================================================================
-function suma_puntos(puntos) {
-  
+function suma_puntos(puntos)
+{
   const bonus = Settings.getPuntos() + puntos.getData('puntos');
   Settings.setPuntos(bonus);
   console.log(bonus, Settings.getPuntos());
 }
 
-// =================================================================================
-function restar_vida() {
-
+function restar_vida()
+{
   const actualizar = Settings.getVidas() - 1;
   Settings.setVidas(actualizar);
 }

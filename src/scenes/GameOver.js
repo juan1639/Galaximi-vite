@@ -5,19 +5,18 @@ import { BotonNuevaPartida } from "../components/boton-nuevapartida.js";
 import { centrar_txt } from "../utils/functions.js";
 import { Settings } from './settings.js';
 
-// ==========================================================================
-export class GameOver extends Scene {
-
-  constructor() {
-
+export class GameOver extends Scene
+{
+  constructor()
+  {
     super({ key: 'gameover' });
     this.estrella = new Estrella(this);
     this.marcador = new Marcador(this);
     this.botonrejugar = new BotonNuevaPartida(this);
   }
   
-  create() {
-
+  create()
+  {
     this.sonidoGameOver = this.sound.add('sonidoGameOver');
 
     this.add.image(0, 0, 'fondoAzulRojizo').setOrigin(0, 0);
@@ -69,19 +68,20 @@ export class GameOver extends Scene {
     this.check_newRecord();
   }
 
-  update() {
+  update()
+  {
     this.estrella.update();
   }
 
-  check_newRecord() {
-
+  check_newRecord()
+  {
     if (Settings.getPuntos() >= Settings.getRecord()) {
 
       Settings.setRecord(Settings.getPuntos());
 
       const y = this.y - 150;
 
-      this.txt_newrecord = this.add.text(this.x, y, ' Enhorabuena! Nuevo Record! ', {
+      this.txt_newrecord = this.add.text(this.x, y, ' Congratulations! New Record! ', {
         fontSize: '40px',
         fontStyle: 'bold',
         shadow: {

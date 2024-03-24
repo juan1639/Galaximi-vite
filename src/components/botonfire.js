@@ -1,18 +1,16 @@
 
-// ==================================================================================
-export class BotonFire {
-
-    static WIDTH = 800;
-    static HEIGHT = 600;
-
-    // --------------------------------------------------------
-    constructor(scene) {
+export class BotonFire
+{
+    constructor(scene)
+    {
         this.relatedScene = scene;
     }
 
-    create() {
-        const ancho = BotonFire.WIDTH;
-        const alto = BotonFire.HEIGHT;
+    create()
+    {
+        const ancho = this.relatedScene.sys.game.config.width;
+        const alto = this.relatedScene.sys.game.config.height;
+
         this.boton = this.relatedScene.add.image(ancho - 100, alto - 90, 'boton-fire-joystick').setInteractive();
         this.boton.setScale(2.3);
         this.isDown = false;
@@ -42,20 +40,17 @@ export class BotonFire {
 }
 
 // ==================================================================================
-export class CrucetaDireccion {
-
-    static WIDTH = 800;
-    static HEIGHT = 600;
-
-    // --------------------------------------------------------
+export class CrucetaDireccion
+{
     constructor(scene, direccion) {
         this.relatedScene = scene;
         this.direccion = direccion;
     }
 
     create() {
-        const ancho = BotonFire.WIDTH;
-        const alto = BotonFire.HEIGHT;
+        const ancho = this.relatedScene.sys.game.config.width;
+        const alto = this.relatedScene.sys.game.config.height;
+        
         this.boton = this.relatedScene.add.image(this.direccion.x, alto - this.direccion.y, this.direccion.id).setInteractive();
         this.boton.setScale(2.7, 2.3);
         this.isDown = false;

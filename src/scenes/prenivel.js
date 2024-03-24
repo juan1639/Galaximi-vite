@@ -4,21 +4,21 @@ import { centrar_txt } from '../utils/functions.js';
 import { Marcador } from '../components/marcador.js';
 import { Settings } from './settings.js';
 
-// ================================================================================
-export class PreNivel extends Scene {
-
-    // -------------------------------------------------
-    constructor() {
+export class PreNivel extends Scene
+{
+    constructor()
+    {
         super({ key: 'prenivel' });
     }
 
-    init() {
+    init()
+    {
         this.estrella = new Estrella(this);
         this.marcador = new Marcador(this);
     }
 
-    create() {
-        
+    create()
+    {    
         this.sonidoGalaxian = this.sound.add('sonidoGalaxian');
 
         this.add.image(0, 0, 'fondoAzulRojizo').setOrigin(0, 0);
@@ -31,7 +31,7 @@ export class PreNivel extends Scene {
         this.left = Math.floor(this.sys.game.config.width / 3.2);
         this.top = Math.floor(this.sys.game.config.height / 3);
         
-        this.txt_titulo = this.add.text(this.left, this.top, ' Nivel ' + Settings.getNivel(), {
+        this.txt_titulo = this.add.text(this.left, this.top, ' Level ' + Settings.getNivel(), {
             fontSize: this.size + 'px',
             fontStyle: 'bold',
             shadow: {
@@ -71,7 +71,8 @@ export class PreNivel extends Scene {
         this.sonidoGalaxian.volume = 0.5;
     }
 
-    update() {
+    update()
+    {
         this.estrella.update();
     }
 }

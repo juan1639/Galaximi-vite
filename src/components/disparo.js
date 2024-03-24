@@ -1,18 +1,16 @@
 
-// ======================================================================================
-export class Disparo {
-
+export class Disparo
+{
     static NRO_MAX_DISPAROS = 3;
     static VEL_Y = -500;
 
-    // ------------------------------------------------------
-    constructor(scene) {
-
+    constructor(scene)
+    {
         this.relatedScene = scene;
     }
 
-    create() {
-
+    create()
+    {
         this.disparo = this.relatedScene.physics.add.group({
             key: 'disparos',
             setXY: { x: -9999, y: 9999, stepX: 150 },
@@ -21,7 +19,7 @@ export class Disparo {
 
         this.relatedScene.tweens.add({
             targets: this.disparo.getChildren(),
-            tint: new Phaser.Display.Color(255, Phaser.Math.Between(40, 250), 0).color,
+            tint: new Phaser.Display.Color(0, Phaser.Math.Between(40, 250), 125).color,
             duration: 500,
             repeat: -1
         });
@@ -48,8 +46,8 @@ export class Disparo {
         console.log(this.disparo);
     }
 
-    update() {
-
+    update()
+    {
         this.disparo.children.iterate(disp => {
             if (disp.y < 0) {
 
@@ -58,7 +56,8 @@ export class Disparo {
         });
     }
     
-    get() {
+    get()
+    {
         return this.disparo;
     }
 }

@@ -4,19 +4,21 @@ import { Settings } from './settings.js';
 import { BotonNuevaPartida } from "../components/boton-nuevapartida.js";
 import { Estrella } from '../components/fondo.js';
 
-export class Congratulations extends Scene {
-
-  constructor() {
+export class Congratulations extends Scene
+{
+  constructor()
+  {
     super({ key: 'congratulations' });
   }
 
-  init() {
+  init()
+  {
     this.estrella = new Estrella(this);
     this.botoninicio = new BotonNuevaPartida(this);
   }
 
-  create() {
-
+  create()
+  {
     const aparecerBoton = 3200;
     this.incremento_nivel = Settings.getNivel() + 1;
     this.sonidoLevelUp = this.sound.add('sonidoLevelUp');
@@ -25,11 +27,11 @@ export class Congratulations extends Scene {
     this.add.image(0, 0, 'fondoAzulRojizo').setOrigin(0, 0);
     this.estrella.create();
 
-    this.size = 80;
+    this.size = 90;
     this.left = Math.floor(this.sys.game.config.width / 5.2);
     this.top = Math.floor(this.sys.game.config.height / 3);
     
-    this.txt_titulo = this.add.text(this.left, this.top, ' Nivel Superado! ', {
+    this.txt_titulo = this.add.text(this.left, this.top, ' Level Up! ', {
         fontSize: this.size + 'px',
         fontStyle: 'bold',
         shadow: {
@@ -39,7 +41,7 @@ export class Congratulations extends Scene {
             blur: 15,
             fill: true
         },
-        fill: '#fd2',
+        fill: '#efa',
         fontFamily: 'verdana, arial, sans-serif'
     });
 
@@ -65,7 +67,8 @@ export class Congratulations extends Scene {
     console.log(this.txt_titulo);
   }
 
-  update() {
+  update()
+  {
     this.estrella.update();
   }
 }

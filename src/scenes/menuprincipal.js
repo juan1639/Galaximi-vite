@@ -1,20 +1,20 @@
 import { Scene } from 'phaser';
 import { loader } from './loader.js';
+import { Textos } from '../components/textos.js';
 import { centrar_txt } from '../utils/functions.js';
 import { Settings } from './settings.js';
 import { Estrella } from '../components/fondo.js';
 import { BotonNuevaPartida, BotonSettings } from "../components/boton-nuevapartida.js";
 
-// =================================================================================
-export class MenuPrincipal extends Scene {
-
-    // -------------------------------------------------
-    constructor() {
+export class MenuPrincipal extends Scene
+{
+    constructor()
+    {
         super({ key: 'menuprincipal' });
     }
 
-    init() {
-
+    init()
+    {
         Settings.setPuntos(0);
         Settings.setNivel(1);
         Settings.setVidas(3);
@@ -22,22 +22,48 @@ export class MenuPrincipal extends Scene {
         this.estrella = new Estrella(this);
         this.botoninicio = new BotonNuevaPartida(this);
         this.botonsettings = new BotonSettings(this);
-    } 
 
-    preload() {
-        const txt = this.add.text(Math.floor(this.sys.game.config.width / 2), Math.floor(this.sys.game.config.height / 2), ' Cargando...', {
-            fontSize: '50px',
-            fill: '#ffa',
-            fontFamily: 'verdana, arial, sans-serif'
+        const widthScreen = this.sys.game.config.width;
+        const heightScreen = this.sys.game.config.height;
+
+        this.txt = new Textos(this, {
+            x: Math.floor(widthScreen / 2),
+            y: Math.floor(heightScreen / 3.5),
+            txt: ' Loading...',
+            size: 55, color: '#ffa', style: 'bold',
+            stroke: '#f91', sizeStroke: 16,
+            shadowOsx: 2, shadowOsy: 2, shadowColor: '#111',
+            bool1: false, bool2: true, origin: [0.5, 0.5],
+            elastic: false, dura: 0
         });
 
-        txt.setX(centrar_txt(txt, this.sys.game.config.width));
+        this.txt.create();
 
+        this.add.rectangle(
+            Math.floor(widthScreen / 2), Math.floor(heightScreen / 2),
+            Math.floor(widthScreen / 1.5), Math.floor(heightScreen / 12)
+        ).setStrokeStyle(1, 0xffee88);
+
+        const bar = this.add.rectangle(
+            Math.floor(widthScreen / 2) - Math.floor(widthScreen / 3) + 4,
+            Math.floor(heightScreen / 2),
+            4,
+            Math.floor(heightScreen / 14),
+            0xff9911
+        );
+
+        this.load.on('progress', (progress) => {
+            bar.width = (Math.floor(widthScreen / 1.52) * progress);
+        });
+    } 
+
+    preload()
+    {
         loader(this);
     }
     
-    create() {
-
+    create()
+    {
         const aparecerBoton = 3200;
 
         this.sonidoMusicaFondo = this.sound.add('sonidoMusicaFondo');
@@ -45,9 +71,9 @@ export class MenuPrincipal extends Scene {
         this.add.image(0, 0, 'fondoAzulRojizo').setOrigin(0, 0);
         this.estrella.create();
 
-        this.size = 90;
-        this.left = Math.floor(this.sys.game.config.width / 5.2);
-        this.top = Math.floor(this.sys.game.config.height / 3);
+        this.size = 99;
+        this.left = 0;
+        this.top = Math.floor(this.sys.game.config.height / 4);
         
         this.txt_titulo = this.add.text(this.left, this.top, ' GalaxIMI ', {
             fontSize: this.size + 'px',
@@ -63,7 +89,15 @@ export class MenuPrincipal extends Scene {
             fontFamily: 'verdana, arial, sans-serif'
         });
 
-        this.txt_titulo.setX(centrar_txt(this.txt_titulo, this.sys.game.config.width));
+        this.txt_titulo.setX(Math.floor(this.sys.game.config.width / 2)).setScale(0);
+
+        this.tweens.add({
+            targets: this.txt_titulo,
+            scale: 1,
+            // x: Math.floor(this.sys.game.config.width / 6.2),
+            x: Math.floor(this.sys.game.config.width / 2) - Math.floor(this.txt_titulo.width / 2),
+            duration: 3000
+        });
 
         this.timeline = this.add.timeline([
             {
@@ -83,7 +117,8 @@ export class MenuPrincipal extends Scene {
         console.log(this.txt_titulo);
     }
 
-    update() {
+    update()
+    {
         this.estrella.update();
     }
 }

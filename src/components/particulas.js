@@ -1,19 +1,17 @@
 
-// ======================================================================================
-export class Particulas {
-
+export class Particulas
+{
     static NRO_PARTICULAS = 9;
     static NRO_PARTICULAS_TOTAL = 15 * Particulas.NRO_PARTICULAS;
     static DURACION_PARTICULAS = 1250;
 
-    // ------------------------------------------------------
-    constructor(scene) {
-
+    constructor(scene)
+    {
         this.relatedScene = scene;
     }
 
-    create() {
-
+    create()
+    {
         this.particulas = this.relatedScene.physics.add.group({
             key: 'particula',
             // frame: 0,
@@ -31,11 +29,10 @@ export class Particulas {
         console.log(this.particulas);
     }
 
-    update() {
-
-    }
+    update() {}
     
-    get() {
+    get()
+    {
         return this.particulas;
     }
 }
