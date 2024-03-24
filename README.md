@@ -1,3 +1,5 @@
+# Recreación de un juego de naves tipo Space Invaders, Galaxian, Galaga...
+
 https://juan1639.github.io/Galaximi-vite
 
 <img src="./src/img/miniatura-galaximi.png"/>
